@@ -1,0 +1,26 @@
+{
+  "name": "logmorphic",
+  "description": "isomorphic logger library supports saving log to browser storage",
+  "authors": [
+    "Jxck"
+  ],
+  "homepage": "https://github.com/Jxck/logmorphic",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "log",
+    "isomorphic",
+    "localstorage"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jxck/logmorphic"
+  }
+}
