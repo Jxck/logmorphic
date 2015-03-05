@@ -1,4 +1,4 @@
-# LogStorage
+# logmorphic
 
 isomorphic logger.
 you can also save to localStorage.
