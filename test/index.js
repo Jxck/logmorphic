@@ -177,3 +177,13 @@ function assert(act, exp, msg) {
     }, 10);
   }, 10);
 })();
+
+console.trace = trace;
+console.debug = debug;
+console.info  = info;
+console.warn  = warn;
+console.error = error;
+console.fatal = fatal;
+
+Logger.prototype._date = _date;
+Logger.prototype._file = _file;

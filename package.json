@@ -28,6 +28,6 @@
   },
   "scripts": {
     "lint": "eslint index.js sample/*.js test/*.js",
-    "test": "node test/index.js"
+    "test": "node test/index.js && node test/filename.js"
   }
 }
