@@ -1,4 +1,4 @@
-var Logger = Logger || require('../logstorage.js').Logger;
+var Logger = Logger || require('../').Logger;
 
 var format = '[%date] %category %level (%file) - %message';
 var appLogger = Logger.getLogger('APP', {
