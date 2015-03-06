@@ -98,12 +98,17 @@ Logger.prototype._date = function() {
 
 // override this for chage getting file/line path
 Logger.prototype._file = function() {
+  // "foo.js:100"
+  var reg = /(?!.*\/).*\.js:\d*/;
+
   // get the stack trace
-  var trace = (new Error()).stack.split('\n')[1];
+  var trace = (new Error()).stack.split('\n')[4];
+
   // extract file path
-  var file = /\((.*?)\)/.exec(trace)[1];
+  var file = reg.exec(trace)[0];
+
   // return only file name and line number
-  return file.split('/').pop();
+  return file;
 };
 
 Logger.prototype._write = function(level, args) {
