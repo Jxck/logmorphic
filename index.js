@@ -28,11 +28,11 @@ function Logger(category, option) {
     case 'INFO':
       this.out.INFO = console.info || console.log;
     case 'WARN':
-      this.out.WARN = console.warn || console.log;
+      this.out.WARN = console.warn || console.error;
     case 'ERROR':
-      this.out.ERROR = console.error || console.log;
+      this.out.ERROR = console.error || console.error;
     case 'FATAL':
-      this.out.FATAL = console.fatal || console.log;
+      this.out.FATAL = console.fatal || console.error;
     default:
   }
 
