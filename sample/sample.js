@@ -2,7 +2,7 @@ var Logger = Logger || require('../').Logger;
 
 var format = '[%date] %category %level (%file) - %message';
 var appLogger = Logger.getLogger('APP', {
-  loglevel: 'FATAL',
+  loglevel: 'DEBUG',
   format: format,
   storage: {
     type: 'localStorage',

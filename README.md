@@ -10,7 +10,7 @@ var Logger = Logger || require('../logstorage.js').Logger;
 
 var format = '[%date] %category %level (%file) - %message';
 var appLogger = Logger.getLogger('APP', {
-  loglevel: 'FATAL',
+  loglevel: 'DEBUG',
   format: format,
   storage: {
     type: 'localStorage',
@@ -28,6 +28,21 @@ appLogger.error('the value of "hoge" at', a, 'is', 100);
 appLogger.fatal('the value of "hoge" at', a, 'is', 100);
 ```
 
+output (no `TRACE` because of `loglevel` settings to `DEBUG`)
+
+```sh
+$ node sample/sample.js
+[2015-03-06T07:11:00.036Z] APP DEBUG (sample.js:16) - the value of "hoge" at {"hoge":100} is 100
+[2015-03-06T07:11:00.038Z] APP INFO (sample.js:17) - the value of "hoge" at {"hoge":100} is 100
+[2015-03-06T07:11:00.039Z] APP WARN (sample.js:18) - the value of "hoge" at {"hoge":100} is 100
+[2015-03-06T07:11:00.039Z] APP ERROR (sample.js:19) - the value of "hoge" at {"hoge":100} is 100
+[2015-03-06T07:11:00.040Z] APP FATAL (sample.js:20) - the value of "hoge" at {"hoge":100} is 100
+```
+
+- TRACE/DEBUG/INFO log outs to `STDOUT`
+- WANR/ERROR/FATAL log outs to `STDERROR`
+
+
 ## install & commands
 
 ```sh
@@ -42,6 +57,16 @@ $ npm install
 $ npm test
 $ npm lint
 ```
+
+## FAQ
+
+### how to save logs to the file ?
+
+logmorphic currentry doesn't support logging to file.
+because system usually running with process management tools like supervisord, forever, monit etc
+they usually have logging support which gets log from STDOUT/STDERROR, and saves to file, logserver, fluentd etc,
+and also log-rotation, log-versioning, log-destroy or so. just use that.
+
 
 ## License
 
