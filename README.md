@@ -42,6 +42,23 @@ $ node sample/sample.js
 - TRACE/DEBUG/INFO log outs to `STDOUT`
 - WANR/ERROR/FATAL log outs to `STDERROR`
 
+## format
+
+format has these place-holder
+
+- `%date`: current date time. change format with override `Logger.prototype._date`.
+- `%level`: level of log name in upper case (`DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`).
+- `%category`: set by `getLogger()` first arg.
+- `%message`: given args to logger. string or serialized number/object/functions.
+- `%file`: file name and line number, but has performace consideration.
+
+**caution**: `%file` is build by track trace from Error object because JS doesn't has API for that.
+this is heavy operation, so consider carefully in production environment.
+
+using filename in develop environment and replace format in production is recomended.
+if you wanna get more info in production, use `logger.trace()` or out the given Error instance,
+which has `stack` property.
+
 
 ## install & commands
 
