@@ -2,7 +2,7 @@ var Logger = Logger || require('../').Logger;
 
 function assert(act, exp, msg) {
   console.log('.');
-  console.assert(act === exp, msg);
+  console.assert(act === exp, msg || 'act: ' + act + '\n' + 'exp: ' + exp);
 }
 
 var trace = console.trace;

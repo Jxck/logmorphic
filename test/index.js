@@ -15,7 +15,7 @@ var _file = Logger.prototype._file;
 
 function assert(act, exp, msg) {
   consolelog('.');
-  console.assert(act === exp, msg);
+  console.assert(act === exp, msg || 'act: ' + act + '\n' + 'exp: ' + exp);
 }
 
 (function test_default() {
