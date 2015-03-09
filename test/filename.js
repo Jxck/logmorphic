@@ -13,28 +13,28 @@ var error = console.error;
 var fatal = console.fatal;
 
 console.fatal = function(log) {
-  assert(log, "filename.js:45");
-}
+  assert(log, 'filename.js:45');
+};
 
 console.error = function(log) {
-  assert(log, "filename.js:48");
-}
+  assert(log, 'filename.js:48');
+};
 
 console.warn = function(log) {
-  assert(log, "filename.js:51");
-}
+  assert(log, 'filename.js:51');
+};
 
 console.info = function(log) {
-  assert(log, "filename.js:57");
-}
+  assert(log, 'filename.js:57');
+};
 
 console.debug = function(log) {
-  assert(log, "filename.js:64");
-}
+  assert(log, 'filename.js:64');
+};
 
 console.trace = function(log) {
-  assert(log, "filename.js:68");
-}
+  assert(log, 'filename.js:68');
+};
 
 console.log('test_filename');
 var logger = new Logger('test_filename', {
@@ -70,7 +70,7 @@ for (var i=0; i<1; i++) {
 
 console.trace = trace;
 console.debug = debug;
-console.info  = info;
-console.warn  = warn;
+console.info = info;
+console.warn = warn;
 console.error = error;
 console.fatal = fatal;

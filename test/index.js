@@ -180,8 +180,8 @@ function assert(act, exp, msg) {
 
 console.trace = trace;
 console.debug = debug;
-console.info  = info;
-console.warn  = warn;
+console.info = info;
+console.warn = warn;
 console.error = error;
 console.fatal = fatal;
 

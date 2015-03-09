@@ -55,7 +55,7 @@ you can call all build task from npm run-scripts.
 ```sh
 $ npm install
 $ npm test
-$ npm lint
+$ npm run lint
 ```
 
 ## FAQ

@@ -45,7 +45,6 @@ function Logger(category, option) {
   if (option.storage) {
     // storategy for logging to localStorage
     if (option.storage.type === 'localStorage' && typeof localStorage !== 'undefined') {
-
       // max limit to save to localStorage is 20K, ignore value over it.
       var limit = option.storage.limit || 20 * 1000; // 20K
       if (limit > 20 * 2000) throw new Error('not recommend over 20K to log storage limit for localStorage');
@@ -55,11 +54,9 @@ function Logger(category, option) {
 
       // override _save with saving log function
       this._save = function(log) {
-
         // make it non-blocking
         // TODO: replace this with setImmediate if ready
         setTimeout(function() {
-
           // get saved data
           var saved = localStorage.getItem(key);
 
