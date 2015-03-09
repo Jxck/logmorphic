@@ -159,11 +159,17 @@ Logger.prototype._file = function() {
 };
 
 Logger.prototype._write = function(level, args) {
+  var thisArg = this;
+
   var log = this.format;
-  log = log.replace('%date', this._date());
+  log = log.replace('%date', function() {
+    return thisArg._date();
+  });
   log = log.replace('%category', this.category);
   log = log.replace('%level', level);
-  log = log.replace('%file', this._file());
+  log = log.replace('%file', function() {
+    return thisArg._file();
+  });
 
   // serialize arguments to message string
   var message = args.map(function(arg) {
