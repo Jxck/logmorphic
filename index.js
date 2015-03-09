@@ -101,8 +101,55 @@ Logger.prototype._file = function() {
   // "foo.js:100"
   var reg = /(?!.*\/).*\.js:\d*/;
 
+  // create error
+  var err = new Error();
+
   // get the stack trace
-  var trace = (new Error()).stack.split('\n')[4];
+  var stack = err.stack;
+
+  // ie flag
+  var ie = false;
+
+  // IE doesn't create stack without throw
+  if (stack === undefined) {
+    try {
+      throw err;
+    } catch (e) {
+      stack = e.stack;
+      ie = true;
+    }
+  }
+
+  // unsupported
+  if (stack === undefined) {
+    return '';
+  }
+
+  // split stack in each line
+  var traces = stack.split('\n');
+
+  // get the trace
+  var trace;
+
+  // get the trace in each UA
+  //  UA     index  detect
+  //  v8     6      Error
+  //  safari 5
+  //  ie     5      Error + throw
+  //  ff     4
+  if (err.lineNumber) {
+    // Firefox
+    trace = traces[4];
+  } else if (ie) {
+    // IE
+    trace = traces[5];
+  } else if (/Error/.test(traces[0])) {
+    // Chrome
+    trace = traces[6];
+  } else {
+    // Safari
+    trace = traces[5];
+  }
 
   // extract file path
   var file = reg.exec(trace)[0];
