@@ -9,7 +9,8 @@
   "devDependencies": {
     "eslint": "^0.16.1",
     "eslint-plugin-no-func-space": "0.0.1",
-    "eslint-plugin-nodeca": "^1.0.3"
+    "eslint-plugin-nodeca": "^1.0.3",
+    "typescript": "^1.4.1"
   },
   "directories": {
     "test": "test"
@@ -28,6 +29,7 @@
   },
   "scripts": {
     "lint": "eslint index.js sample/*.js test/*.js",
-    "test": "node test/index.js && node test/filename.js"
+    "test": "node test/index.js && node test/filename.js",
+    "tsc": "tsc sample/typescript.ts --module commonjs"
   }
 }
