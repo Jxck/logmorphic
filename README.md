@@ -75,6 +75,11 @@ $ npm test
 $ npm run lint
 ```
 
+## TypeScript support
+
+use [logmorphic.d.ts](./logmorphic.d.ts) for typescript.
+
+
 ## FAQ
 
 ### how to save logs to the file ?
