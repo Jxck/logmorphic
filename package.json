@@ -29,7 +29,7 @@
   },
   "scripts": {
     "lint": "eslint index.js sample/*.js test/*.js",
-    "test": "node test/index.js && node test/filename.js",
+    "test": "node test/index.js && node test/filename.js && npm run tsc",
     "tsc": "tsc sample/typescript.ts --module commonjs"
   }
 }
