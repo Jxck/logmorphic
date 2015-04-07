@@ -18,3 +18,27 @@ appLogger.info('the value of "hoge" at', a, 'is', 100);
 appLogger.warn('the value of "hoge" at', a, 'is', 100);
 appLogger.error('the value of "hoge" at', a, 'is', 100);
 appLogger.fatal('the value of "hoge" at', a, 'is', 100);
+
+
+var ltsvLogger = Logger.getLogger('LTSV', {
+  loglevel: 'DEBUG',
+  format: 'LTSV'
+});
+
+ltsvLogger.debug({
+  first: 'a',
+  second: 'b',
+  third: 'c'
+});
+
+
+var jsonLogger = Logger.getLogger('JSON', {
+  loglevel: 'DEBUG',
+  format: 'JSON'
+});
+
+jsonLogger.debug({
+  first: 'a',
+  second: 'b',
+  third: 'c'
+});

@@ -158,36 +158,57 @@ Logger.prototype._file = function() {
 Logger.prototype._write = function(level, args) {
   var thisArg = this;
 
-  var log = this.format;
-  log = log.replace('%date', function() {
-    return thisArg._date();
-  });
-  log = log.replace('%category', this.category);
-  log = log.replace('%level', level);
-  log = log.replace('%file', function() {
-    return thisArg._file();
-  });
+  var log;
+  switch (this.format) {
+    case 'JSON':
+      var arg = args[0];
+      arg.date = this._date();
+      arg.category = this.category;
+      arg.level = level;
+      log = JSON.stringify(arg);
+      break;
+    case 'LTSV':
+      log = [];
+      log.push('date:' + this._date());
+      log.push('category:' + this.category);
+      log.push('level:' + level);
+      var arg = args[0];
+      log = log.concat(Object.keys(arg).map(function(key) {
+        return key + ':' + arg[key];
+      }));
+      log = log.join('\t');
+      break;
+    default:
+      log = this.format;
+      log = log.replace('%date', function() {
+        return thisArg._date();
+      });
+      log = log.replace('%category', this.category);
+      log = log.replace('%level', level);
+      log = log.replace('%file', function() {
+        return thisArg._file();
+      });
 
-  // serialize arguments to message string
-  var message = args.map(function(arg) {
-    // null/undefined to empty string
-    if (!arg) return '';
+      // serialize arguments to message string
+      var message = args.map(function(arg) {
+        // null/undefined to empty string
+        if (!arg) return '';
 
-    // string as is
-    if (typeof arg === 'string') {
-      return arg;
-    }
+        // string as is
+        if (typeof arg === 'string') {
+          return arg;
+        }
 
-    // number, function toString()
-    if ([ 'number', 'function' ].indexOf(typeof arg) > 0) {
-      return arg.toString();
-    }
+        // number, function toString()
+        if ([ 'number', 'function' ].indexOf(typeof arg) > 0) {
+          return arg.toString();
+        }
 
-    // otherwise to JSON
-    return JSON.stringify(arg);
-  }).join(' ');
-
-  log = log.replace('%message', message);
+        // otherwise to JSON
+        return JSON.stringify(arg);
+      }).join(' ');
+      log = log.replace('%message', message);
+  }
 
   // call level specified function
   // lovel = 'TRACE' -> console.trace();
