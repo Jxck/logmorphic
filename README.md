@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Jxck/logmorphic.svg?branch=master)](https://travis-ci.org/Jxck/logmorphic)
+
 # logmorphic
 
 isomorphic logger.
