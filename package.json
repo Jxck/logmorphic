@@ -31,5 +31,18 @@
     "lint": "eslint index.js sample/sample.js test/*.js",
     "test": "npm run lint && npm run tsc && node test/index.js",
     "tsc": "tsc sample/typescript.ts --module commonjs"
+  },
+  "testling": {
+    "html": "test/index.html",
+    "browsers": [
+      "ie/8..latest",
+      "chrome/25..latest",
+      "firefox/20..latest",
+      "safari/latest",
+      "opera/12..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
   }
 }
