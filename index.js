@@ -4,7 +4,7 @@ function Logger(category, option) {
 
   option = option || {};
 
-  var noop = function() {};
+  function noop() {}
 
   // initialize all output to noop
   this.out = {
