@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Jxck/logmorphic.svg?branch=master)](https://travis-ci.org/Jxck/logmorphic)
+[![Testling](https://ci.testling.com/Jxck/logmorphic.png)](https://ci.testling.com/Jxck/logmorphic)
 
 # logmorphic
 
