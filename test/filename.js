@@ -1,9 +1,9 @@
 var Logger = Logger || require('../').Logger;
 
-function assert(act, exp, msg) {
-  console.log('.');
-  console.assert(act === exp, msg || 'act: ' + act + '\n' + 'exp: ' + exp);
-}
+var assert = global.assert;
+
+
+var consolelog = global.consolelog;
 
 var trace = console.trace;
 var debug = console.debug;
@@ -36,7 +36,7 @@ console.trace = function(log) {
   assert(log, 'filename.js:68');
 };
 
-console.log('test_filename');
+console.log('# test_filename');
 var logger = new Logger('test_filename', {
   format: '%file'
 });
