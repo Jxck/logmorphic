@@ -109,7 +109,7 @@ rules: # 0: disable, 1: warn, 2: error
   no-catch-shadow        : 2 # no overwrite cought error
   no-delete-var          : 2 # no delete var: var x; delete x;
   no-label-var           : 2 # no label with variable name no-shadow
-  no-shadow              : 2 # no shadowing
+  no-shadow              : 0 # no shadowing
   no-shadow-restricted-names: 2 # no shadowing Global props
   no-undef               : 1 # no use undeclared vars
   no-undef-init          : 2 # no initialize with undefined: var a = undefined;
@@ -136,7 +136,7 @@ rules: # 0: disable, 1: warn, 2: error
   consistent-this        : [2, 'thisArg'] # use var thisArg = this;
   eol-last               : 2 # eol at last line
   func-names             : 0 # TODO: require function name for debugging: Foo.prototype.bar = function bar(){}
-  func-style             : 0
+  func-style             : [2, 'declaration'] # use function expression
   key-spacing            : [2, { beforeColon: false, afterColon: true }] # add colon after key
   max-nested-callbacks   : [2, 4] # TODO: max callback nest
   new-cap                : [2, { newIsCap: true, capIsNew: true }] # use UpperCap for Constructor and always call with new
@@ -174,7 +174,7 @@ rules: # 0: disable, 1: warn, 2: error
       propertyName: false
     }]
   space-in-parens        : [2, 'never'] # always no space on parens
-  space-infix-ops        : 0 # always space in infix ops
+  space-infix-ops        : 2 # always space in infix ops
   space-return-throw-case: 2 # always space in return, throw, case
   #FIXME: uncomment this after update. space-unary-ops        : 2 # always space in unary words
   spaced-line-comment    : [2, 'always'] # alwasy space before comment
