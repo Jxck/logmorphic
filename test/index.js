@@ -9,8 +9,8 @@ consolelog('1..', N);
 
 var count = 1;
 function assert(act, exp, msg) {
-  consolelog('ok', count++);
   console.assert(act === exp, msg || 'act: ' + act + '\n' + 'exp: ' + exp);
+  consolelog('ok', count++);
 }
 
 var Logger = Logger || require('../').Logger;
