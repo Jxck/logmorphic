@@ -109,6 +109,11 @@ they usually have logging support which gets log from STDOUT/STDERROR, and saves
 and also log-rotation, log-versioning, log-destroy or so. just use that.
 
 
+## CHANGELOG
+
+- v0.0.5: update dependencies and fix for new .eslintrc
+
+
 ## License
 
 MIT: http://jxck.mit-license.org/
