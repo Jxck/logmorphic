@@ -3,12 +3,12 @@ var Logger = Logger || require('../').Logger;
 var format = '[%date] %category %level (%file) - %message';
 var appLogger = Logger.getLogger('APP', {
   loglevel: 'DEBUG',
-  format: format,
-  storage: {
-    type: 'localStorage',
-    key: 'log',
-    limit: 1000 * 10 // 10K
-  }
+  format:   format,
+  storage:  {
+    type:  'localStorage',
+    key:   'log',
+    limit: 1000 * 10, // 10K
+  },
 });
 
 var a = { hoge: 100 };

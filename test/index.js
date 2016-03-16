@@ -136,7 +136,7 @@ var _file = Logger.prototype._file;
   };
 
   var logger = Logger.getLogger('loglevel', {
-    loglevel: 'ERROR'
+    loglevel: 'ERROR',
   });
 
   logger.trace('never called');
@@ -158,12 +158,12 @@ var _file = Logger.prototype._file;
 
   var logger = Logger.getLogger('APP', {
     loglevel: 'FATAL',
-    format: '%message',
-    storage: {
-      type: 'localStorage',
-      key: key,
-      limit: 21
-    }
+    format:   '%message',
+    storage:  {
+      type:  'localStorage',
+      key:   key,
+      limit: 21,
+    },
   });
 
   var message = 'tenbytes!!';
@@ -234,7 +234,7 @@ console.trace = function(log) {
 
 console.log('# test_filename');
 var logger = new Logger('test_filename', {
-  format: '%file'
+  format: '%file',
 });
 
 

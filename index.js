@@ -10,10 +10,10 @@ function Logger(category, option) {
   this.out = {
     TRACE: noop,
     DEBUG: noop,
-    INFO: noop,
-    WARN: noop,
+    INFO:  noop,
+    WARN:  noop,
     ERROR: noop,
-    FATAL: noop
+    FATAL: noop,
   };
 
   // default loglevel is TRACE
@@ -23,16 +23,22 @@ function Logger(category, option) {
     // use fallthrough for loglevel
     case 'TRACE':
       this.out.TRACE = console.trace || console.log;
+      break;
     case 'DEBUG':
       this.out.DEBUG = console.debug || console.log;
+      break;
     case 'INFO':
       this.out.INFO = console.info || console.log;
+      break;
     case 'WARN':
       this.out.WARN = console.warn || console.error;
+      break;
     case 'ERROR':
       this.out.ERROR = console.error || console.error;
+      break;
     case 'FATAL':
       this.out.FATAL = console.fatal || console.error;
+      break;
     default:
   }
 
@@ -179,7 +185,7 @@ Logger.prototype._write = function(level, args) {
     }
 
     // number, function toString()
-    if ([ 'number', 'function' ].indexOf(typeof arg) > 0) {
+    if (['number', 'function'].indexOf(typeof arg) > 0) {
       return arg.toString();
     }
 
